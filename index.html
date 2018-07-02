@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather !</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="/projetJee/template/css/site.css">
+    <link rel="stylesheet" href="/projetJee/template/library/weather-icons-master/css/weather-icons.css">
+    <link rel="stylesheet" href="/projetJee/template/library/fontawesome-free-5.1.0-web/css/all.css">
+    <link rel="stylesheet" href="/projetJee/template/library/bootstrap/css/bootstrap.min.css">
+
+    <!-- JS  -->
+
+    <script src="/projetJee/template/library/fontawesome-free-5.1.0-web/js/all.js" type="text/javascript"></script>
+    <script src="/projetJee/template/js/JQuery.js" type="text/javascript"></script>
+    <script src="/projetJee/template/library/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <!-- Video de fond d'écran -->
+      <video src="/projetJee/template/video/grosse-vague.mp4" playsinline autoplay muted loop> </video>
+
+      <!-- Presentation top -->
+      <div class="row text-center">
+        <div class="col-xs-12">
+          <div class="jumbotron border-text">
+            <h1 style="font-size:80px">Mété<i class="wi wi-day-sunny slow-spin sun" style="font-size:0.85em;"></i></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- row -->
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3>Localisation automatique</h3>
+            </div>
+            <div class="panel-body">
+              <!-- get automatic location  -->
+              <button id="find_btn" class="btn">Trouvez moi !</button>
+            </div>
+            <div class="panel-footer">
+              Merci d'accepter la fenêtre qui va s'ouvrir !
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3>Localisation manuelle</h3>
+            </div>
+            <div class="panel-body">
+              <!-- manual location -->
+              <div class="row">
+                <div class="col-xs-8">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-location-arrow"></i></span>
+                    <input id="manual-location" type="text" class="form-control" placeholder="Nom de votre ville">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <button id="btn-manual-location" class="btn"> Valider !</button>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              Merci de valider après avoir saisi le nom de votre ville
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end panel -->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3>Votre position <i class="fas fa-map-marked-alt"></i></h3>
+            </div>
+            <div class="panel-body">
+              <div id="result"></div>
+            </div>
+            <div class="panel-footer">
+              Les données sont soumises aux données par l'ordinateur et peuvent ne pas être exactes !
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="jumbotron">
+
+            <div class="row">
+              <div class="col-xs-6">
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-thermometer"> </i>
+                    Température :
+                    <span id="span-temperature">30</span>
+                    <i class="wi wi-celsius"></i>
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-thermometer"> </i>
+                    Température min :
+                    <span id="span-temperature">18</span>
+                    <i class="wi wi-celsius"></i>
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-strong-wind"> </i>
+                    Vent :
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-sunrise"> </i>
+                    Lever de soleil :
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="fab fa-sellsy"></i>
+                    Description :
+                  </h2>
+                </div>
+
+              </div>
+
+              <div class="col-xs-6">
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-barometer"> </i>
+                    Pression :
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-thermometer"> </i>
+                    Température Max :
+                    <span id="span-temperature">34</span>
+                    <i class="wi wi-celsius"></i>
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="fas fa-binoculars"></i>
+                    Visibilité :
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-sunset"> </i>
+                    Coucher de soleil :
+                  </h2>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <h2 class="border-text">
+                    <i class="wi wi-humidity"> </i>
+                    Humidité :
+                  </h2>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!-- end container -->
+  </body>
+
+
+
+  <script type="text/javascript">
+    $("#find_btn").click(function () { //user clicks button
+      if ("geolocation" in navigator){ //check geolocation available
+          //try to get user current location using getCurrentPosition() method
+          navigator.geolocation.getCurrentPosition(function(position){
+
+            $("#result").html("Found your location <br />Lat : "+position.coords.latitude+" </br>Lang :"+ position.coords.longitude);
+          });
+      }else{
+          console.log("Browser doesn't support geolocation!");
+      }
+    } , );
+  </script>
+
+  <script type="text/javascript">
+
+  let ajaxUrl = "http://localhost:8080/ProjetJava/meteo/montpellier";
+
+
+
+  $(document).ready(function(){
+      $.get(ajaxUrl  , function(data){
+        console.log(data);
+      } , "Json");
+
+      $.ajax({
+
+        url: ajaxUrl,
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'json',
+        success: function() { alert("Success"); },
+        error: function() { alert('Failed!'); },
+    });
+
+  });
+
+  </script>
+
+
+</html>

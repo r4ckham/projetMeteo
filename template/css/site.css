@@ -1,0 +1,46 @@
+body {
+    /*background-image:    url(/projetJee/template/img/Weather-Background.jpg);*/
+    background-attachment: fixed;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
+}
+
+.border-text{
+  color: white !important;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.slow-spin {
+  -webkit-animation: fa-spin 8s infinite linear;
+  animation: fa-spin 8s infinite linear;
+}
+
+.jumbotron {
+  border : solid 1px;
+  border-color: #337ab7;
+  background-color : rgba(47,79,79, 0.8) !important;
+}
+
+.sun{
+  color : #fa8e2a !important;
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+}
